@@ -12,12 +12,12 @@
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
-    // [::1] is the IPv6 localhost address.
-    window.location.hostname === '[::1]' ||
-    // 127.0.0.1/8 is considered localhost for IPv4.
-    window.location.hostname.match(
-      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-    )
+  // [::1] is the IPv6 localhost address.
+  window.location.hostname === '[::1]' ||
+  // 127.0.0.1/8 is considered localhost for IPv4.
+  window.location.hostname.match(
+    /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+  )
 );
 
 export function register(config) {
@@ -43,7 +43,7 @@ export function register(config) {
         navigator.serviceWorker.ready.then(() => {
           console.log(
             'This web app is being served cache-first by a service ' +
-              'worker. To learn more, visit https://bit.ly/CRA-PWA'
+            'worker. To learn more, visit https://bit.ly/CRA-PWA'
           );
         });
       } else {
@@ -51,6 +51,8 @@ export function register(config) {
         registerValidSW(swUrl, config);
       }
     });
+
+  
   }
 }
 
@@ -63,7 +65,7 @@ function registerValidSW(swUrl, config) {
         if (installingWorker == null) {
           return;
         }
-        installingWorker.onstatechange = () => {
+        installingWorker.onstatechange = async () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
               // At this point, the updated precached content has been fetched,
@@ -71,9 +73,22 @@ function registerValidSW(swUrl, config) {
               // content until all client tabs are closed.
               console.log(
                 'New content is available and will be used when all ' +
-                  'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
+                'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
-
+              //registration.unregister();
+              window.reg = registration;
+              // var cacheskeys = await caches.keys();
+              // cacheskeys.forEach(async (element) => {
+              //   //var cache = await caches.open(element)
+              //   var cache = await caches.open(element)
+              //   cache.keys().then(function (cachekeys) {
+              //     cachekeys.forEach(oldCache => {
+              //       cache.delete(oldCache)
+              //     });
+              //   }
+              //   )
+              // });
+              window.location.reload();
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
