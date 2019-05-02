@@ -52,7 +52,7 @@ export function register(config) {
       }
     });
 
-  
+
   }
 }
 
@@ -65,7 +65,7 @@ function registerValidSW(swUrl, config) {
         if (installingWorker == null) {
           return;
         }
-        installingWorker.onstatechange = async () => {
+        installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
               // At this point, the updated precached content has been fetched,
@@ -75,19 +75,6 @@ function registerValidSW(swUrl, config) {
                 'New content is available and will be used when all ' +
                 'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
-              //registration.unregister();
-              window.reg = registration;
-              // var cacheskeys = await caches.keys();
-              // cacheskeys.forEach(async (element) => {
-              //   //var cache = await caches.open(element)
-              //   var cache = await caches.open(element)
-              //   cache.keys().then(function (cachekeys) {
-              //     cachekeys.forEach(oldCache => {
-              //       cache.delete(oldCache)
-              //     });
-              //   }
-              //   )
-              // });
               window.location.reload();
               // Execute callback
               if (config && config.onUpdate) {
