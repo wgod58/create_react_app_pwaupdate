@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "cra-append-sw": "^2.6.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && cra-append-sw -s ./src/custom-sw.js",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
